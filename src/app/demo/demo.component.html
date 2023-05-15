@@ -1,0 +1,43 @@
+<div class="container">
+
+
+<h2 >Welcome to {{name | uppercase}}</h2>
+<img [src]="image">
+<br>
+<br>
+<form>
+  <label>Enter your name  </label> &nbsp; &nbsp;
+    <input type="text" name="fullName" [(ngModel)]="fullName"><br>
+  <p *ngIf="show" [ngStyle]="apply()">You have entered {{fullName}}</p>
+</form><br>
+<button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>
+
+    <br>
+    <!-- <div *ngIf="show">Text to show</div> -->
+<!-- <button (click)="show()">Click Here</button> -->
+
+<br>
+
+<h4>Structural directive</h4>
+<div *ngFor="let item of list">
+  <li>{{item}}</li>
+
+</div>
+
+<h4>ngSwitch directive</h4>
+<ul [ngSwitch]="logInName">
+   <li *ngSwitchCase="'user'">
+      <p>User is logged in..</p>
+   </li>
+   <li *ngSwitchCase="'admin'">
+      <p>admin is logged in</p>
+   </li>
+   <li *ngSwitchDefault>
+      <p>Please choose login name</p>
+   </li>
+</ul>
+
+<!-- <app-parent></app-parent> -->
+<!-- <app-studentlist></app-studentlist> -->
+
+</div>

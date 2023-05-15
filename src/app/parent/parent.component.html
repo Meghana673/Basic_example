@@ -1,0 +1,16 @@
+<!-- <div>
+  <input type="text" name="val" [(ngModel)]="val" >
+  <app-child [item]="val"></app-child>
+</div> -->
+
+<div>
+
+
+<app-child (newItemEvent)="addItem($event)"></app-child>
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+
+</ul>
+</div>
+
+<!-- <app-template-forms></app-template-forms> -->

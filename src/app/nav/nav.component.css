@@ -1,0 +1,26 @@
+.navbar-custom
+{
+  background-color: black;
+
+}
+.nav-link
+{
+  color: white;
+}
+.nav-link:hover{
+ color:cornsilk;
+}
+/* .nav-link:active{
+  background-color: rgb(89, 167, 235);
+} */
+.navbar-brand{
+  color: white;
+  font-weight: bolder;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.btn-secondary{
+  background-color: rgb(4, 4, 6);
+}
+.btn-secondary:hover{
+  background-color: rgb(99, 99, 128);
+}

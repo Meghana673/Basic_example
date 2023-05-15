@@ -1,0 +1,69 @@
+<div class=" container">
+
+<h4>Book List</h4>
+<button type="button" style="position: relative;" class="btn btn-primary add" (click)="clickToAdd()" data-bs-toggle="modal" data-bs-target="#exampleModal">
+Add Book
+</button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Author</th>
+      <th scope="col">Title</th>
+
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let b  of allProperty">
+    <td>{{b.id}}</td>
+    <td>{{b.author}}</td>
+    <td>{{b.title}}</td>
+
+    <td>{{b.price | currency:'INR'}}</td>
+      <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="onEdit(b)">Edit</button>
+        &nbsp;&nbsp;
+        <button class="btn btn-danger" (click)="deleteBook(b)">Delete</button> &nbsp;&nbsp;
+        <!-- <button class="btn btn-warning"  (click)="viewById(b)">View</button> -->
+        <td>
+    </tr>
+
+
+  </tbody>
+</table>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add Book</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <input type="text"  formControlName="author" class="form-control" >
+            <span style="color: red" *ngIf="author && author.invalid && author.touched">Please enter the Mail id</span>
+          </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" formControlName="title" class="form-control" >
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input type="text" formControlName="price" class="form-control" >
+        </div>
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="cancel" data-bs-dismiss="modal">Close</button>
+        <button type="button" *ngIf="showAdd" class="btn btn-primary" (click)="addBook()">Add </button>
+        <button type="button" *ngIf="showEdit" (click)="updateBook()" class="btn btn-warning" >Update </button>
+      </div>
+
+    </div>
+  </div>
+</div>

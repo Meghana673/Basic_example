@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h3>Login</h3>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <input type="text" class="form-control" formControlName="mail" placeholder="Email">
+    <span style="color: red" *ngIf="mail && mail.invalid && mail.touched">Please enter the Mail id</span>
+    <br>
+
+    <input type="password" class="form-control" formControlName="password" placeholder="Password">
+    <span style="color: red" *ngIf="password && password.invalid && password.touched">Please enter the password</span>
+    <br>
+    <button [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+  </form>
+</div>
+
+<!-- <app-create></app-create> -->
