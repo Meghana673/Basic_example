@@ -62,6 +62,7 @@ export class LoginComponent {
       alert("Something went wrong")
     })
   }
+  
   get email()
   {
    return this.loginForm.get('email');
